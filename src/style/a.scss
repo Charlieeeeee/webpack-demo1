@@ -1,0 +1,8 @@
+
+.red-bg{
+    background: url('./../assets/bg.png') no-repeat center ;
+    background-size:100% 50% ; 
+    &::after{
+        content:"hahaha"
+    }
+}

@@ -1,0 +1,24 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('./../assets/DS-DIGIB.ttf');
+    font-weight: 600;
+    font-style: normal;
+  }
+.box{
+    width: 100px;
+    height: 100px;
+    color:red;
+}
+
+.shadow-box{
+  font-family: 'MyFont';
+  width: 750px;
+  height: 750px;
+  background: linear-gradient(to left,red,blue); 
+  text-align: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-clamp: 3;
+  box-orient: vertical;
+}
