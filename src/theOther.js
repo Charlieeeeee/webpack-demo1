@@ -1,12 +1,6 @@
-import axios from 'axios';
-
 (() => {
   console.log('the other one');
 })();
-
-axios.get('/api/info').then(res => {
-  console.log('here:', res);
-});
 
 class Greet {
   hello() {
