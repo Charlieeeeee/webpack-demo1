@@ -9,7 +9,7 @@ module.exports = {
   // },
   entry: './src/index.js',
   output: {
-    filename: './static/main~[hash:8].js',
+    filename: './static/main.[hash:8].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: './'
   },
@@ -22,8 +22,11 @@ module.exports = {
   plugins: [
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
+      title: 'My App',
       template: './src/index.html',
       filename: 'index.html', // 打包后的名字
+      favicon: './src/fav.ico',
+      inject: true,
       minify: {
         removeAttributeQuotes: false,
         collapseWhitespace: false
@@ -56,6 +59,21 @@ module.exports = {
         test: /\.json$/,
         exclude: /(node_modules)/,
         loader: 'json-loader'
+      },
+      // {
+      //   test:/\.html$/i,
+      //   loader:'html-loader',
+      //   options:{
+      //     esModule:true,
+      //     minimize: false,
+      //   }
+      // },//加载html里的静态资源
+      {
+        exclude:/\.(html|js|css|less|sass|scss|jpg|jpeg|png|gif)$/,
+        loader:'file-loader',
+        options:{
+          name:'[name].[hash:8].[ext]'
+        }
       }
     ]
   }

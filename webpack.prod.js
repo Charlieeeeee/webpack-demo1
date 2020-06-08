@@ -21,7 +21,7 @@ const prodConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: './static/[name]~[hash:8].css',
+      filename: './static/[name].[hash:8].css',
       chunkname: './static/[id].css'
     })
   ],
@@ -62,34 +62,35 @@ const prodConfig = {
           {
             loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
             options: {
-              // outputPath:'./',
-              publicPath: '/', // 解决打包后图片引用路径问题
-              name: 'static/[name].[ext]',
-              limit: 10000// 10kb以内的才转为base64
+              outputPath:'./static/',
+              publicPath: './', // 解决打包后图片引用路径问题
+              name: '[name].[ext]',
+              limit: 10000,// 10kb以内的才转为base64
+              // esModule:false
             }
           },
-          {
-            loader: 'image-webpack-loader',
-            options: {
-              mozjpeg: {
-                progressive: true,
-                quality: 65
-              },
-              optipng: {
-                enabled: false
-              },
-              pngquant: {
-                quality: '65-90',
-                speed: 4
-              },
-              gifsicle: {
-                interlaced: false
-              },
-              webp: {
-                quality: 75
-              }
-            }
-          }
+          // {
+          //   loader: 'image-webpack-loader',//用于压缩图片资源
+          //   options: {
+          //     mozjpeg: {
+          //       progressive: true,
+          //       quality: 65
+          //     },
+          //     optipng: {
+          //       enabled: false
+          //     },
+          //     pngquant: {
+          //       quality: '65-90',
+          //       speed: 4
+          //     },
+          //     gifsicle: {
+          //       interlaced: false
+          //     },
+          //     webp: {
+          //       quality: 75
+          //     }
+          //   }
+          // }
         ]
       }
     ]

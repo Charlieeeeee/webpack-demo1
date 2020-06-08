@@ -80,7 +80,6 @@ const devConfig = {
               // outputPath:'./',
               publicPath: './', // 解决打包后图片引用路径问题
               name: 'static/[name].[ext]',
-              limit: 10000// 10kb以内的才转为base64
             }
           },
           {
