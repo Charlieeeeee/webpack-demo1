@@ -9,7 +9,7 @@ module.exports = {
   // },
   entry: './src/index.js',
   output: {
-    filename: './static/main.[hash:8].js',
+    filename: './main.[hash:8].js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: './'
   },

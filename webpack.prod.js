@@ -21,8 +21,8 @@ const prodConfig = {
   },
   plugins: [
     new MiniCssExtractPlugin({
-      filename: './static/[name].[hash:8].css',
-      chunkname: './static/[id].css'
+      filename: '[name].[hash:8].css',
+      chunkname: '[id].css'
     })
   ],
   module: {
@@ -30,7 +30,12 @@ const prodConfig = {
       {
         test: /\.(sa|sc|c)ss$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader:MiniCssExtractPlugin.loader,
+            options:{
+              publicPath:'../'
+            }
+          },
           {
             loader: 'css-loader',
             options: {
@@ -57,16 +62,20 @@ const prodConfig = {
         ]// 从右(下)到左(上)处理
       },
       {
+        test:/\.html$/i,
+        loader:'html-loader'
+      },
+      {
         test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
         use: [
           {
             loader: 'url-loader', // file-loader 退出历史舞台，url更加强大，可以把图片和字体处理为base64
             options: {
-              outputPath:'./static/',
+              // outputPath:'./',
               publicPath: './', // 解决打包后图片引用路径问题
-              name: '[name].[ext]',
+              name: 'assets/[name].[hash:7].[ext]',
               limit: 10000,// 10kb以内的才转为base64
-              // esModule:false
+              esModule:false
             }
           },
           // {
