@@ -60,14 +60,10 @@ module.exports = {
         exclude: /(node_modules)/,
         loader: 'json-loader'
       },
-      // {
-      //   test:/\.html$/i,
-      //   loader:'html-loader',
-      //   options:{
-      //     esModule:true,
-      //     minimize: false,
-      //   }
-      // },//加载html里的静态资源
+      {
+        test:/\.html$/i,
+        loader:'html-loader'
+      },
       {
         exclude:/\.(html|js|css|less|sass|scss|jpg|jpeg|png|gif)$/,
         loader:'file-loader',

@@ -62,10 +62,6 @@ const prodConfig = {
         ]// 从右(下)到左(上)处理
       },
       {
-        test:/\.html$/i,
-        loader:'html-loader'
-      },
-      {
         test: /\.(png|svg|jpg|gif|jpeg|ico|woff|woff2|eot|ttf|otf)$/,
         use: [
           {
